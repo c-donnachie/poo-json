@@ -4,6 +4,8 @@ from config import db_config
 from termcolor import colored
 import os
 
+escribir = colored(">>", "yellow", attrs=["bold"])
+
 opciones = {
     1: " 1.- Agregar cuentas",
     2: " 2.- Eliminar cuenta",
@@ -49,19 +51,40 @@ def main():
     banco.borrar_datos_mysql(conexion_mysql)
 
     banco.cargar_desde_json("datos.json")
+    banco.listar_cuentas()
 
     while True:
-        limpiar_consola()
-        banco.listar_cuentas()
         mostrar_menu()
         opcion = input("Ingrese el número de la opción deseada: ")
 
         if opcion == "1":
             # Agregar cuenta
             titular = input("Ingrese el titular de la cuenta: ")
-            tipo = input("Ingrese el tipo de cuenta: ")
+            rut = input("Ingrese el rut: ")
+            print("Tipos de cuenta:")
+            print("1. Cuenta Vista")
+            print("2. Cuenta Corriente")
+            print("3. Cuenta de Ahorro")
+            while True:
+                tipo = input(f"Ingrese el tipo de cuenta {escribir} ")
+                if tipo == "1":
+                    tipo = "Cuenta Vista"
+                    break
+                elif tipo == "2":
+                    tipo = "Cuenta Corriente"
+                    break
+                elif tipo == "3":
+                    tipo = "Cuenta de Ahorro"
+                    break
+                else:
+                    print("Opcion invalida!")
             saldo = float(input("Ingrese el saldo inicial: "))
-            nueva_cuenta = CuentaBancaria(titular, tipo, saldo)
+            celular = input("Ingrese el celular: ")
+            direccion = input("Ingrese la direccion: ")
+            email = input("Ingrese el email: ")
+            nueva_cuenta = CuentaBancaria(
+                titular, rut, tipo, saldo, celular, direccion, email
+            )
             banco.agregar_cuenta(nueva_cuenta)
             print("Cuenta agregada exitosamente.")
         elif opcion == "2":

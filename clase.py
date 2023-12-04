@@ -7,12 +7,16 @@ import os
 class CuentaBancaria:
     contador_cuentas = 0
 
-    def __init__(self, titular, tipo, saldo):
+    def __init__(self, titular, rut, tipo, saldo, celular, direccion, email):
         CuentaBancaria.contador_cuentas += 1
         self.numero = CuentaBancaria.contador_cuentas
         self.titular = titular
+        self.rut = rut
         self.tipo = tipo
         self.saldo = saldo
+        self.celular = celular
+        self.direccion = direccion
+        self.email = email
 
 
 class Banco:
@@ -28,8 +32,12 @@ class Banco:
                 for cuenta_json in cuentas_json:
                     cuenta = CuentaBancaria(
                         titular=cuenta_json["titular"],
+                        rut=cuenta_json["rut"],
                         tipo=cuenta_json["tipo"],
                         saldo=cuenta_json["saldo"],
+                        celular=cuenta_json["celular"],
+                        direccion=cuenta_json["direccion"],
+                        email=cuenta_json["email"],
                     )
                     cuenta.numero = cuenta_json["numero"]
                     self.cuentas_bancarias.append(cuenta)
@@ -53,11 +61,21 @@ class Banco:
         for i, cuenta in enumerate(self.cuentas_bancarias):
             if cuenta.numero == numero_cuenta:
                 nuevo_titular = input("Ingrese el nuevo titular: ")
+                nuevo_rut = input("Ingrese el nuevo rut: ")
                 nuevo_tipo = input("Ingrese el nuevo tipo de cuenta: ")
                 nuevo_saldo = float(input("Ingrese el nuevo saldo: "))
+                nuevo_celular = input("Ingrese el nuevo  Celular: ")
+                nuevo_direccion = input("Ingrese el nueva direccion: ")
+                nuevo_email = input("Ingrese el nuevo email: ")
 
                 self.cuentas_bancarias[i] = CuentaBancaria(
-                    nuevo_titular, nuevo_tipo, nuevo_saldo
+                    nuevo_titular,
+                    nuevo_rut,
+                    nuevo_tipo,
+                    nuevo_saldo,
+                    nuevo_celular,
+                    nuevo_direccion,
+                    nuevo_email,
                 )
                 print(f"Cuenta bancaria con número {numero_cuenta} modificada.")
                 return
@@ -73,8 +91,9 @@ class Banco:
         )
         for cuenta in self.cuentas_bancarias:
             print(
-                f"Número: {cuenta.numero}, Titular: {cuenta.titular}, Tipo: {cuenta.tipo}, Saldo: {cuenta.saldo}"
+                f"Número: {cuenta.numero}, Rut: {cuenta.rut} , Titular: {cuenta.titular}, Tipo: {cuenta.tipo}, Saldo: {cuenta.saldo}, Celular: {cuenta.celular}, Dirección: {cuenta.direccion}, Email: {cuenta.email}"
             )
+            print("")
         print(
             colored(
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
@@ -99,8 +118,13 @@ class Banco:
                     CREATE TABLE IF NOT EXISTS CuentasBancarias (
                         numero INT PRIMARY KEY,
                         titular VARCHAR(255) NOT NULL,
+                        rut VARCHAR(15) NOT NULL,
                         tipo VARCHAR(255) NOT NULL,
-                        saldo DECIMAL(10, 2) NOT NULL
+                        saldo DECIMAL(10, 2) NOT NULL,
+                        celular VARCHAR(15) NOT NULL,
+                        direccion VARCHAR(255) NOT NULL,
+                        email VARCHAR(255) NOT NULL
+                        
                     )
                 """
                 )
@@ -108,10 +132,19 @@ class Banco:
                 for cuenta in self.cuentas_bancarias:
                     cursor.execute(
                         """
-                        INSERT INTO CuentasBancarias (numero, titular, tipo, saldo)
-                        VALUES (%s, %s, %s, %s)
+                        INSERT INTO CuentasBancarias (numero, rut, titular, tipo, saldo, celular, direccion, email)
+                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
                     """,
-                        (cuenta.numero, cuenta.titular, cuenta.tipo, cuenta.saldo),
+                        (
+                            cuenta.numero,
+                            cuenta.rut,
+                            cuenta.titular,
+                            cuenta.tipo,
+                            cuenta.saldo,
+                            cuenta.celular,
+                            cuenta.direccion,
+                            cuenta.email,
+                        ),
                     )
 
                 conexion.commit()

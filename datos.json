@@ -1,50 +1,104 @@
 {
   "cuentas_bancarias": [
     {
-      "nombre": "Juan Perez",
+      "numero": 123456,
+      "titular": "Juan Pérez",
       "rut": "12345678-9",
       "tipo": "Ahorros",
-      "numero": 123456,
       "saldo": 1500.0,
       "celular": "95412311",
       "direccion": "Calle 1 # 123",
       "email": "juan.perez@gmail.com"
     },
     {
-      "titular": "Ana Gomez",
-      "rut": "20245245-5",
+      "numero": 654321,
+      "titular": "María Gómez",
+      "rut": "98765432-1",
       "tipo": "Corriente",
-      "numero": 789012,
-      "saldo": 2000.0,
-      "celular": "123-456-7890"
-    },
-    {
-      "titular": "Carlos Rodriguez",
-      "tipo": "Ahorros",
-      "numero": 345678,
-      "saldo": 800.0,
-      "celular": "123-456-7890"
-    },
-    {
-      "titular": "Maria Torres",
-      "tipo": "Corriente",
-      "numero": 901234,
       "saldo": 3000.0,
-      "celular": "123-456-7890"
+      "celular": "91234567",
+      "direccion": "Avenida 2 # 456",
+      "email": "maria.gomez@hotmail.com"
     },
     {
-      "titular": "Pedro Sanchez",
+      "numero": 789012,
+      "titular": "Pedro Rodríguez",
+      "rut": "11223344-5",
       "tipo": "Ahorros",
-      "numero": 567890,
-      "saldo": 1200.0,
-      "celular": "123-456-7890"
+      "saldo": 500.0,
+      "celular": "98765432",
+      "direccion": "Calle 3 # 789",
+      "email": "pedro.rodriguez@yahoo.com"
     },
     {
-      "titular": "Laura Fernandez",
+      "numero": 345678,
+      "titular": "Laura Muñoz",
+      "rut": "55667788-9",
       "tipo": "Corriente",
+      "saldo": 8000.0,
+      "celular": "99887766",
+      "direccion": "Avenida 4 # 1011",
+      "email": "laura.munoz@gmail.com"
+    },
+    {
+      "numero": 876543,
+      "titular": "Andrés Díaz",
+      "rut": "99001122-3",
+      "tipo": "Ahorros",
+      "saldo": 1200.0,
+      "celular": "95555555",
+      "direccion": "Calle 5 # 1213",
+      "email": "andres.diaz@outlook.com"
+    },
+    {
       "numero": 234567,
-      "saldo": 2500.0,
-      "celular": "123-456-7890"
+      "titular": "Isabel Soto",
+      "rut": "33445566-7",
+      "tipo": "Corriente",
+      "saldo": 6000.0,
+      "celular": "93332211",
+      "direccion": "Avenida 6 # 1415",
+      "email": "isabel.soto@gmail.com"
+    },
+    {
+      "numero": 876549,
+      "titular": "Felipe Torres",
+      "rut": "77889900-1",
+      "tipo": "Ahorros",
+      "saldo": 200.0,
+      "celular": "97778888",
+      "direccion": "Calle 7 # 1617",
+      "email": "felipe.torres@hotmail.com"
+    },
+    {
+      "numero": 345642,
+      "titular": "Catalina González",
+      "rut": "11223344-5",
+      "tipo": "Corriente",
+      "saldo": 4500.0,
+      "celular": "95554444",
+      "direccion": "Avenida 8 # 1819",
+      "email": "catalina.gonzalez@yahoo.com"
+    },
+    {
+      "numero": 235527,
+      "titular": "Martín Herrera",
+      "rut": "55667788-9",
+      "tipo": "Ahorros",
+      "saldo": 700.0,
+      "celular": "98887777",
+      "direccion": "Calle 9 # 2021",
+      "email": "martin.herrera@gmail.com"
+    },
+    {
+      "numero": 876541,
+      "titular": "Ana López",
+      "rut": "99001122-3",
+      "tipo": "Corriente",
+      "saldo": 3000.0,
+      "celular": "94445555",
+      "direccion": "Avenida 10 # 2223",
+      "email": "ana.lopez@outlook.com"
     }
   ]
 }
