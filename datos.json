@@ -1,0 +1,50 @@
+{
+  "cuentas_bancarias": [
+    {
+      "nombre": "Juan Perez",
+      "rut": "12345678-9",
+      "tipo": "Ahorros",
+      "numero": 123456,
+      "saldo": 1500.0,
+      "celular": "95412311",
+      "direccion": "Calle 1 # 123",
+      "email": "juan.perez@gmail.com"
+    },
+    {
+      "titular": "Ana Gomez",
+      "rut": "20245245-5",
+      "tipo": "Corriente",
+      "numero": 789012,
+      "saldo": 2000.0,
+      "celular": "123-456-7890"
+    },
+    {
+      "titular": "Carlos Rodriguez",
+      "tipo": "Ahorros",
+      "numero": 345678,
+      "saldo": 800.0,
+      "celular": "123-456-7890"
+    },
+    {
+      "titular": "Maria Torres",
+      "tipo": "Corriente",
+      "numero": 901234,
+      "saldo": 3000.0,
+      "celular": "123-456-7890"
+    },
+    {
+      "titular": "Pedro Sanchez",
+      "tipo": "Ahorros",
+      "numero": 567890,
+      "saldo": 1200.0,
+      "celular": "123-456-7890"
+    },
+    {
+      "titular": "Laura Fernandez",
+      "tipo": "Corriente",
+      "numero": 234567,
+      "saldo": 2500.0,
+      "celular": "123-456-7890"
+    }
+  ]
+}
